@@ -1,3 +1,12 @@
 <template>
-  <h1>${message}</h1>
+  <require from="bootstrap/css/bootstrap.css"></require>
+  <div class="container">
+    <h1>ToDo Liste</h1>
+    <i class="fa fa-trash" aria-hidden="true"></i>
+
+    <div repeat.for="todo of todos" class = "form-group">
+      <input type="checkbox" model.bind="todo.id" checked.bind="selectedTodoIds">
+      ${todo.title}
+    </div>
+  </div>
 </template>
