@@ -1,10 +1,24 @@
 export class App {
   todos = [
-    {id: 0, title: 'Abwasch' },
-    {id: 1, title: 'Müll rausbringen' },
-    {id: 2, title: 'Staubsaugen' },
+    {title: 'Abwasch' },
+    {title: 'Müll rausbringen' },
+    {title: 'Staubsaugen' },
   ];
 
   selectedTodoIds = [];
+
+  newTodoTitle = '';
+
+  createTodo()
+  {
+    const todo = {title: this.newTodoTitle};
+    this.todos.push(todo);
+  }
+
+  deleteTodo(title)
+  {
+    const index = this.todos.findIndex(todo => todo.title === title);
+    this.todos.splice(index,1);
+  }
 
 }

@@ -1,12 +1,18 @@
 <template>
   <require from="bootstrap/css/bootstrap.css"></require>
   <div class="container">
-    <h1>ToDo Liste</h1>
-    <i class="fa fa-trash" aria-hidden="true"></i>
+    <h1>To-do-Liste</h1>
 
     <div repeat.for="todo of todos" class = "form-group">
-      <input type="checkbox" model.bind="todo.id" checked.bind="selectedTodoIds">
+      <input type="checkbox" model.bind="todo.title" checked.bind="selectedTodoIds">
       ${todo.title}
+      <i class="fa fa-trash fa-2x" aria-hidden="true" click.delegate="deleteTodo(todo.title)"></i>
     </div>
+    <div form-group>
+      <i class="fa fa-plus-square fa-2x" aria-hidden="true" click.delegate="createTodo()"></i>
+      <input css="form-control" value.bind="newTodoTitle" placeholder="Titel...">
+    </div>
+
+
   </div>
 </template>
