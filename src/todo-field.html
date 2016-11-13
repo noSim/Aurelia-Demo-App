@@ -1,0 +1,7 @@
+<template>
+  <input type="checkbox" checked.bind="todo.selected">
+  <label style="text-decoration: ${todo.selected ? 'line-through' : 'none'}">${todo.title}</label>
+  <span class ="btn">
+    <i class="fa fa-trash fa-2x" aria-hidden="true" click.delegate="deleteTodo()"></i>
+  </span>
+</template>

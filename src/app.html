@@ -1,15 +1,19 @@
 <template>
   <require from="bootstrap/css/bootstrap.css"></require>
+  <require from="./todo-field"></require>
+
   <div class="container">
     <h1>To-do-Liste</h1>
 
-    <div repeat.for="todo of todos" class = "form-group">
-      <input type="checkbox" model.bind="todo.title" checked.bind="selectedTodoIds">
-      ${todo.title}
-      <i class="fa fa-trash fa-2x" aria-hidden="true" click.delegate="deleteTodo(todo.title)"></i>
+    <div repeat.for="todo of todos" class = "form-group" >
+      <todo-field todo.bind="todo" delete.call="deleteTodo(title)"></todo-field>
     </div>
-    <div form-group>
-      <i class="fa fa-plus-square fa-2x" aria-hidden="true" click.delegate="createTodo()"></i>
+
+
+    <div class="form-group">
+      <span class="btn">
+        <i class="fa fa-plus-square fa-2x" aria-hidden="true" click.delegate="createTodo()"></i>
+      </span>
       <input css="form-control" value.bind="newTodoTitle" placeholder="Titel...">
     </div>
 

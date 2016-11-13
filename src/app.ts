@@ -1,18 +1,17 @@
 export class App {
   todos = [
-    {title: 'Abwasch' },
-    {title: 'Müll rausbringen' },
-    {title: 'Staubsaugen' },
+    {title: 'Abwasch', selected: false },
+    {title: 'Müll rausbringen', selected: false },
+    {title: 'Staubsaugen', selected: false },
   ];
-
-  selectedTodoIds = [];
 
   newTodoTitle = '';
 
   createTodo()
   {
-    const todo = {title: this.newTodoTitle};
+    const todo = {title: this.newTodoTitle, selected: false};
     this.todos.push(todo);
+    this.newTodoTitle = '';
   }
 
   deleteTodo(title)
